@@ -10,15 +10,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-primary border border-primary-foreground/20 text-primary-foreground shadow-md hover:bg-primary-hover',
+          'bg-primary border border-primary-foreground/20 text-primary-foreground shadow-md hover:bg-primary-hover  focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40',
         modrinth:
-          'bg-[#1CD96A] border border-black/20 text-black shadow-md hover:bg-[#1CD96A]/90',
+          'bg-[#1CD96A] border border-black/20 text-black focus-visible:ring-[#1CD96A]/20 dark:focus-visible:ring-[#1CD96A]/40 shadow-md hover:bg-[#1CD96A]/90',
         destructive:
-          'bg-destructive border border-white/20 text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 dark:hover:bg-destructive/50',
+          'bg-destructive border border-white/20 text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/70 dark:hover:bg-destructive/60',
         outline:
-          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',
+          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:hover:bg-input/50',
         secondary:
-          'bg-secondary border border-secondary-foreground/20 text-secondary-foreground shadow-xs hover:bg-secondary/80',
+          'bg-secondary border border-secondary-foreground/20 text-secondary-foreground shadow-xs hover:bg-secondary-hover',
         ghost:
           'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/80',
         link: 'text-primary underline-offset-4 hover:underline',

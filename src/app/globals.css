@@ -3,11 +3,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: 'Overused Grotesk';
+  src: url('https://raw.githubusercontent.com/RandomMaerks/Overused-Grotesk/master/fonts/variable/OverusedGroteskRoman-VF.ttf');
+  font-weight: 300 900;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
+  --font-overusedgrotesk: 'Overused Grotesk', sans-serif;
   --font-public-sans: var(--font-public-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -32,6 +39,7 @@
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
   --color-primary-hover: var(--primary-hover);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
@@ -56,7 +64,8 @@
   --primary: oklch(0.581 0.179 265);
   --primary-foreground: oklch(0.985 0 0);
   --primary-hover: oklch(68.283% 0.16468 266.055);
-  --secondary: oklch(0.97 0 0);
+  --secondary: oklch(86.995% 0.0001 271.152);
+  --secondary-hover: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -82,7 +91,7 @@
 }
 
 .dark {
-  --background: oklch(13.5% 0.0243 262deg);
+  --background: oklch(19.6% 0.00621 271deg);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -92,10 +101,11 @@
   --primary-foreground: oklch(0.985 0 0);
   --primary-hover: oklch(68.283% 0.16468 266.055);
   --secondary: oklch(0.269 0 0);
+  --secondary-hover: oklch(39.042% 0.00004 271.152);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: oklch(24.46% 0.00961 276.678);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);

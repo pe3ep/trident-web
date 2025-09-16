@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${publicSans.variable} ${geistMono.variable} ${inter.className} antialiased`}>
+        className={`${inter.variable} ${publicSans.variable} ${geistMono.variable} ${inter.className} tracking-tight selection:bg-foreground/20 antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
