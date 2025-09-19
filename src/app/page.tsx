@@ -1,15 +1,13 @@
-'use client'
-import VariableFontCursorProximity from '@/components/fancy/text/variable-font-cursor-proximity'
 import GithubLogo from '@/components/icons/github'
 import ModrinthLogo from '@/components/icons/modrinth'
+import ModrinthVersionComponent from '@/components/test/ModrinthVersionComponent'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+import VariableTitle from '@/components/VariableTitle'
 import { House } from 'lucide-react'
 import React from 'react'
 
 export default function Home() {
-  const containerRef = React.useRef<HTMLDivElement>(null)
   return (
     <>
       <div className="bg-background relative z-10 h-[100vh] w-full">
@@ -17,18 +15,7 @@ export default function Home() {
           <h1 className="font-public-sans scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
             Trident
           </h1>
-          <div
-            ref={containerRef}
-            className="font-overusedgrotesk flex justify-center">
-            <VariableFontCursorProximity
-              className={cn('text-4xl md:text-6xl lg:text-7xl leading-none')}
-              fromFontVariationSettings="'wght' 600, 'slnt' 0"
-              toFontVariationSettings="'wght' 900, 'slnt' 0"
-              radius={200}
-              containerRef={containerRef}>
-              Trident
-            </VariableFontCursorProximity>
-          </div>
+          <VariableTitle />
           <div className="flex flex-col gap-4 max-w-min">
             <Button variant="default">Hello!</Button>
             <Button variant="secondary">Hello!</Button>
@@ -44,6 +31,7 @@ export default function Home() {
             <Badge variant="secondary">hello</Badge>
           </div>
           <p>This is regular text.</p>
+          <ModrinthVersionComponent />
         </main>
       </div>
       <footer className="sticky z-0 bottom-0 h-48 bg-primary">
