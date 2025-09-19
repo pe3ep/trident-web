@@ -1,7 +1,7 @@
-import { RefObject, useEffect, useRef } from "react"
+import { RefObject, useEffect, useRef } from 'react'
 
 export const useMousePositionRef = (
-  containerRef?: RefObject<HTMLElement | SVGElement>
+  containerRef?: RefObject<HTMLElement | SVGElement | null>
 ) => {
   const positionRef = useRef({ x: 0, y: 0 })
 
@@ -29,12 +29,12 @@ export const useMousePositionRef = (
     }
 
     // Listen for both mouse and touch events
-    window.addEventListener("mousemove", handleMouseMove)
-    window.addEventListener("touchmove", handleTouchMove)
+    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('touchmove', handleTouchMove)
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-      window.removeEventListener("touchmove", handleTouchMove)
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('touchmove', handleTouchMove)
     }
   }, [containerRef])
 

@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import React, { ElementType, forwardRef, useMemo, useRef } from "react"
-import { motion, useAnimationFrame } from "motion/react"
+import React, { ElementType, forwardRef, useMemo, useRef } from 'react'
+import { motion, useAnimationFrame } from 'motion/react'
 
-import { cn } from "@/lib/utils"
-import { useMousePositionRef } from "@/hooks/use-mouse-position-ref"
+import { cn } from '@/lib/utils'
+import { useMousePositionRef } from '@/hooks/use-mouse-position-ref'
 
 /**
  * Props for the VariableFontCursorProximity component.
@@ -44,7 +44,7 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
    * The cursor position will be calculated relative to this container's bounds.
    * Required prop with no default value.
    */
-  containerRef: React.RefObject<HTMLDivElement>
+  containerRef: React.RefObject<HTMLDivElement | null>
 
   /**
    * The radius in pixels within which letters respond to cursor proximity.
@@ -60,19 +60,19 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
    * - "gaussian": Bell curve falloff (smooth, natural feeling)
    * @default "linear"
    */
-  falloff?: "linear" | "exponential" | "gaussian"
+  falloff?: 'linear' | 'exponential' | 'gaussian'
 }
 
 const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
   (
     {
       children,
-      as = "span",
+      as = 'span',
       fromFontVariationSettings,
       toFontVariationSettings,
       containerRef,
       radius = 50,
-      falloff = "linear",
+      falloff = 'linear',
       className,
       ...props
     },
@@ -100,22 +100,22 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
       // Parse the 'from' font variation settings string
       const fromSettings = new Map(
         fromFontVariationSettings
-          .split(",")
+          .split(',')
           .map((s) => s.trim())
           .map((s) => {
-            const [name, value] = s.split(" ")
-            return [name.replace(/['"]/g, ""), parseFloat(value)]
+            const [name, value] = s.split(' ')
+            return [name.replace(/['"]/g, ''), parseFloat(value)]
           })
       )
 
       // Parse the 'to' font variation settings string
       const toSettings = new Map(
         toFontVariationSettings
-          .split(",")
+          .split(',')
           .map((s) => s.trim())
           .map((s) => {
-            const [name, value] = s.split(" ")
-            return [name.replace(/['"]/g, ""), parseFloat(value)]
+            const [name, value] = s.split(' ')
+            return [name.replace(/['"]/g, ''), parseFloat(value)]
           })
       )
 
@@ -163,13 +163,13 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
       const normalizedDistance = Math.min(Math.max(1 - distance / radius, 0), 1)
 
       switch (falloff) {
-        case "exponential":
+        case 'exponential':
           // Quadratic falloff - more dramatic effect near cursor
           return Math.pow(normalizedDistance, 2)
-        case "gaussian":
+        case 'gaussian':
           // Bell curve falloff - smooth, natural feeling
           return Math.exp(-Math.pow(distance / (radius / 2), 2) / 2)
-        case "linear":
+        case 'linear':
         default:
           // Linear falloff - consistent rate of change
           return normalizedDistance
@@ -219,7 +219,7 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
               fromValue + (toValue - fromValue) * falloffValue
             return `'${axis}' ${interpolatedValue}`
           })
-          .join(", ")
+          .join(', ')
 
         // Cache and apply the interpolated settings
         interpolatedSettingsRef.current[index] = newSettings
@@ -228,26 +228,22 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
     })
 
     // Split text into words and track letter indices across all words
-    const words = String(children).split(" ")
+    const words = String(children).split(' ')
     let letterIndex = 0
     const ElementTag = as
 
     return (
       <ElementTag
         ref={ref}
-        className={cn(
-          className,
-        )}
+        className={cn(className)}
         {...props}
-        data-text={children}
-      >
+        data-text={children}>
         {words.map((word, wordIndex) => (
           <span
             key={wordIndex}
             className="inline-block whitespace-nowrap"
-            aria-hidden
-          >
-            {word.split("").map((letter) => {
+            aria-hidden>
+            {word.split('').map((letter) => {
               const currentLetterIndex = letterIndex++
               return (
                 <motion.span
@@ -260,8 +256,7 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
                   style={{
                     fontVariationSettings:
                       interpolatedSettingsRef.current[currentLetterIndex],
-                  }}
-                >
+                  }}>
                   {letter}
                 </motion.span>
               )
@@ -277,5 +272,5 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
   }
 )
 
-VariableFontCursorProximity.displayName = "VariableFontCursorProximity"
+VariableFontCursorProximity.displayName = 'VariableFontCursorProximity'
 export default VariableFontCursorProximity
