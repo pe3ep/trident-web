@@ -76,7 +76,7 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
       className,
       ...props
     },
-    ref
+    ref,
   ) => {
     // Refs to store references to each individual letter element
     const letterRefs = useRef<(HTMLSpanElement | null)[]>([])
@@ -105,7 +105,7 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
           .map((s) => {
             const [name, value] = s.split(' ')
             return [name.replace(/['"]/g, ''), parseFloat(value)]
-          })
+          }),
       )
 
       // Parse the 'to' font variation settings string
@@ -116,7 +116,7 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
           .map((s) => {
             const [name, value] = s.split(' ')
             return [name.replace(/['"]/g, ''), parseFloat(value)]
-          })
+          }),
       )
 
       // Create structured data for each axis with from/to values
@@ -139,12 +139,7 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
      * @param y2 - Y coordinate of second point (letter center)
      * @returns Distance in pixels between the two points
      */
-    const calculateDistance = (
-      x1: number,
-      y1: number,
-      x2: number,
-      y2: number
-    ): number => {
+    const calculateDistance = (x1: number, y1: number, x2: number, y2: number): number => {
       return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
     }
 
@@ -196,14 +191,12 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
           mousePositionRef.current.x,
           mousePositionRef.current.y,
           letterCenterX,
-          letterCenterY
+          letterCenterY,
         )
 
         // If letter is outside the effect radius, reset to default settings
         if (distance >= radius) {
-          if (
-            letterRef.style.fontVariationSettings !== fromFontVariationSettings
-          ) {
+          if (letterRef.style.fontVariationSettings !== fromFontVariationSettings) {
             letterRef.style.fontVariationSettings = fromFontVariationSettings
           }
           return
@@ -215,8 +208,7 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
         // Interpolate between from and to settings for each axis
         const newSettings = parsedSettings
           .map(({ axis, fromValue, toValue }) => {
-            const interpolatedValue =
-              fromValue + (toValue - fromValue) * falloffValue
+            const interpolatedValue = fromValue + (toValue - fromValue) * falloffValue
             return `'${axis}' ${interpolatedValue}`
           })
           .join(', ')
@@ -233,16 +225,9 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
     const ElementTag = as
 
     return (
-      <ElementTag
-        ref={ref}
-        className={cn(className)}
-        {...props}
-        data-text={children}>
+      <ElementTag ref={ref} className={cn(className)} {...props} data-text={children}>
         {words.map((word, wordIndex) => (
-          <span
-            key={wordIndex}
-            className="inline-block whitespace-nowrap"
-            aria-hidden>
+          <span key={wordIndex} className="inline-block whitespace-nowrap" aria-hidden>
             {word.split('').map((letter) => {
               const currentLetterIndex = letterIndex++
               return (
@@ -254,22 +239,19 @@ const VariableFontCursorProximity = forwardRef<HTMLElement, TextProps>(
                   className="inline-block"
                   aria-hidden="true"
                   style={{
-                    fontVariationSettings:
-                      interpolatedSettingsRef.current[currentLetterIndex],
+                    fontVariationSettings: interpolatedSettingsRef.current[currentLetterIndex],
                   }}>
                   {letter}
                 </motion.span>
               )
             })}
-            {wordIndex < words.length - 1 && (
-              <span className="inline-block">&nbsp;</span>
-            )}
+            {wordIndex < words.length - 1 && <span className="inline-block">&nbsp;</span>}
           </span>
         ))}
         <span className="sr-only">{children}</span>
       </ElementTag>
     )
-  }
+  },
 )
 
 VariableFontCursorProximity.displayName = 'VariableFontCursorProximity'

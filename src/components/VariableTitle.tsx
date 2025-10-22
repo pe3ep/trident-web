@@ -6,11 +6,9 @@ import { cn } from '@/lib/utils'
 export default function VariableTitle() {
   const containerRef = React.useRef<HTMLDivElement>(null)
   return (
-    <div
-      ref={containerRef}
-      className="font-overusedgrotesk flex justify-center">
+    <div ref={containerRef} className="font-overusedgrotesk flex justify-center">
       <VariableFontCursorProximity
-        className={cn('text-4xl md:text-6xl lg:text-7xl leading-none')}
+        className={cn('text-4xl leading-none md:text-6xl lg:text-7xl')}
         fromFontVariationSettings="'wght' 600, 'slnt' 0"
         toFontVariationSettings="'wght' 900, 'slnt' 0"
         radius={200}

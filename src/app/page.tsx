@@ -11,12 +11,12 @@ export default function Home() {
   return (
     <>
       <div className="bg-background relative z-10 h-[100vh] w-full">
-        <main className="max-w-6xl mx-auto p-4">
+        <main className="mx-auto max-w-6xl p-4">
           <h1 className="font-public-sans scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
             Trident
           </h1>
           <VariableTitle />
-          <div className="flex flex-col gap-4 max-w-min">
+          <div className="flex max-w-min flex-col gap-4">
             <Button variant="default">Hello!</Button>
             <Button variant="secondary">Hello!</Button>
             <Button variant="modrinth">Hello!</Button>
@@ -24,7 +24,7 @@ export default function Home() {
             <Button variant="ghost">Hello!</Button>
             <Button variant="outline">Hello!</Button>
           </div>
-          <div className="mt-4 flex gap-2 max-w-min">
+          <div className="mt-4 flex max-w-min gap-2">
             <Badge variant="default">hello</Badge>
             <Badge variant="destructive">hello</Badge>
             <Badge variant="outline">hello</Badge>
@@ -34,29 +34,25 @@ export default function Home() {
           <ModrinthVersionComponent />
         </main>
       </div>
-      <footer className="sticky z-0 bottom-0 h-48 bg-primary">
-        <div className="relative overflow-hidden w-full h-full flex justify-center md:justify-end p-12">
-          <div className="absolute mx-12 bottom-0 left-0 right-0 flex justify-center md:justify-start">
-            <img
-              src="/logo.svg"
-              alt="Trident logo"
-              className="w-[150px] md:w-[200px] translate-y-[20%]"
-            />
+      <footer className="bg-primary sticky bottom-0 z-0 h-48">
+        <div className="relative flex h-full w-full justify-center overflow-hidden p-12 md:justify-end">
+          <div className="absolute right-0 bottom-0 left-0 mx-12 flex justify-center md:justify-start">
+            <img src="/logo.svg" alt="Trident logo" className="w-[150px] translate-y-[20%] md:w-[200px]" />
           </div>
-          <div className="relative flex flex-row space-x-12 sm:pace-x-16 md:space-x-24 sm:text-lg md:text-xl font-medium">
+          <div className="sm:pace-x-16 relative flex flex-row space-x-12 font-medium sm:text-lg md:space-x-24 md:text-xl">
             <ul>
-              <li className="hover:underline cursor-pointer flex items-center">
-                <House className="h-5 w-5 mr-2" />
+              <li className="flex cursor-pointer items-center hover:underline">
+                <House className="mr-2 h-5 w-5" />
                 Home
               </li>
-              <li className="hover:underline cursor-pointer flex items-center">
-                <ModrinthLogo className="h-5 w-5 mr-2" />
+              <li className="flex cursor-pointer items-center hover:underline">
+                <ModrinthLogo className="mr-2 h-5 w-5" />
                 Download
               </li>
             </ul>
             <ul>
-              <li className="hover:underline cursor-pointer flex items-center">
-                <GithubLogo className="h-5 w-5 mr-2" />
+              <li className="flex cursor-pointer items-center hover:underline">
+                <GithubLogo className="mr-2 h-5 w-5" />
                 Github
               </li>
             </ul>

@@ -31,12 +31,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${publicSans.variable} ${geistMono.variable} ${inter.className} tracking-tight selection:bg-foreground/20 antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange>
+        className={`${inter.variable} ${publicSans.variable} ${geistMono.variable} ${inter.className} selection:bg-foreground/20 tracking-tight antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
       </body>
