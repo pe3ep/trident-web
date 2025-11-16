@@ -3,9 +3,7 @@ import ModrinthLogo from '@/components/icons/modrinth'
 import ModrinthVersionComponent from '@/components/test/ModrinthVersionComponent'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import VariableTitle from '@/components/VariableTitle'
 import { House } from 'lucide-react'
-import React from 'react'
 
 export default function Home() {
   return (
@@ -15,7 +13,6 @@ export default function Home() {
           <h1 className="font-public-sans scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
             Trident
           </h1>
-          <VariableTitle />
           <div className="flex max-w-min flex-col gap-4">
             <Button variant="default">Hello!</Button>
             <Button variant="secondary">Hello!</Button>
