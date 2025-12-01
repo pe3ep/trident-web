@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -51,6 +53,15 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Fumadocs */
+  --color-fd-card: var(--background);
+  --color-fd-background: var(--background);
+  --color-fd-popover: var(--background);
+  --color-fd-secondary: var(--secondary);
+  --color-fd-accent: var(--accent);
+  --color-fd-primary: var(--primary);
+  --color-fd-muted: var(--background);
 }
 
 :root {
@@ -100,7 +111,7 @@
   --primary: oklch(0.581 0.179 265);
   --primary-foreground: oklch(0.985 0 0);
   --primary-hover: oklch(68.283% 0.16468 266.055);
-  --secondary: oklch(0.269 0 0);
+  --secondary: oklch(24.506% 0.01149 278.017);
   --secondary-hover: oklch(39.042% 0.00004 271.152);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -108,7 +119,7 @@
   --accent: oklch(24.46% 0.00961 276.678);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
+  --border: var(--accent);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
   --chart-1: oklch(0.488 0.243 264.376);

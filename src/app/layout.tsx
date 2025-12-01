@@ -1,7 +1,8 @@
-import type { Metadata } from 'next'
-import { Public_Sans, Geist_Mono, Inter } from 'next/font/google'
-import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import { RootProvider } from 'fumadocs-ui/provider/next'
+import type { Metadata } from 'next'
+import { Geist_Mono, Inter, Public_Sans } from 'next/font/google'
+import './globals.css'
 
 const publicSans = Public_Sans({
   variable: '--font-public-sans',
@@ -31,9 +32,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${publicSans.variable} ${geistMono.variable} ${inter.className} selection:bg-foreground/20 tracking-tight antialiased`}>
+        className={`${inter.variable} ${publicSans.variable} ${geistMono.variable} ${inter.className} selection:bg-foreground/20 flex min-h-screen flex-col tracking-tight antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+          <RootProvider>{children}</RootProvider>
         </ThemeProvider>
       </body>
     </html>

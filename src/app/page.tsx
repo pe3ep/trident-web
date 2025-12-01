@@ -1,16 +1,16 @@
+import Navbar from '@/components/elements/navbar'
 import GithubLogo from '@/components/icons/github'
 import ModrinthLogo from '@/components/icons/modrinth'
-import ModrinthVersionComponent from '@/components/test/ModrinthVersionComponent'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { House } from 'lucide-react'
 
 export default function Home() {
   return (
     <>
+      <Navbar />
+
       <div className="bg-background relative z-10 h-[100vh] w-full">
         <main className="mx-auto max-w-6xl p-4">
-          <h1 className="font-public-sans scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
+          {/* <h1 className="font-public-sans scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
             Trident
           </h1>
           <div className="flex max-w-min flex-col gap-4">
@@ -28,7 +28,7 @@ export default function Home() {
             <Badge variant="secondary">hello</Badge>
           </div>
           <p>This is regular text.</p>
-          <ModrinthVersionComponent />
+          <ModrinthVersionComponent /> */}
         </main>
       </div>
       <footer className="bg-primary sticky bottom-0 z-0 h-48">
@@ -36,7 +36,7 @@ export default function Home() {
           <div className="absolute right-0 bottom-0 left-0 mx-12 flex justify-center md:justify-start">
             <img src="/logo.svg" alt="Trident logo" className="w-[150px] translate-y-[20%] md:w-[200px]" />
           </div>
-          <div className="sm:pace-x-16 relative flex flex-row space-x-12 font-medium sm:text-lg md:space-x-24 md:text-xl">
+          <div className="sm:pace-x-16 relative flex flex-row space-x-12 font-medium sm:text-lg md:space-x-24">
             <ul>
               <li className="flex cursor-pointer items-center hover:underline">
                 <House className="mr-2 h-5 w-5" />
