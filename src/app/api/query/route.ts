@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     .then((res) => res.json())
     .catch((e) => console.log(e))
 
-  let uuid = getUUId?.id || null
+  let uuid: string | null = getUUId?.id || null
   if (uuid == null) {
     return Response.json({ success: false, error: 'Invalid UUID in x-mc-uuid' }, { status: 400 })
   }
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
   // MCCI API - Headers
   const headers: HeadersInit = new Headers()
   headers.set('Content-Type', 'application/json')
-  headers.set('User-Agent', 'Trident Web')
+  headers.set('User-Agent', `trident-web/${uuid}`)
   headers.set('X-API-Key', process.env.NOX_TOKEN!!)
 
   const body = await request.json()
