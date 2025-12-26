@@ -1,3 +1,6 @@
+import { Ratelimit } from '@upstash/ratelimit'
+import { Redis } from '@upstash/redis'
+
 export async function POST(request: Request) {
   let user = request.headers.get('x-mc-uuid')
   if (!user) {
@@ -15,7 +18,15 @@ export async function POST(request: Request) {
     return Response.json({ success: false, error: 'Invalid UUID in x-mc-uuid' }, { status: 400 })
   }
 
-  // TODO: Add ratelimiting based on uuid/ip/whatever
+  const ratelimit = new Ratelimit({
+    redis: Redis.fromEnv(),
+    limiter: Ratelimit.fixedWindow(3, '5s'),
+  })
+
+  const { success } = await ratelimit.limit(uuid)
+  if (!success) {
+    return Response.json({ success: false, error: 'Rate limited. Try again later' }, { status: 403 })
+  }
 
   // MCCI API - Headers
   const headers: HeadersInit = new Headers()
