@@ -1,4 +1,54 @@
 ---
-title: Setting up API
+title: Setting Up an API Token
 icon: EthernetPort
 ---
+
+Bringing your own API token into Trident unlocks additional features.
+
+Currently, only one feature requires API access: the **Exchange Module**.
+
+There are two ways to access the API:
+
+- Using **Lighthouse** (recommended)
+- Bringing your own API token
+
+We generally recommend Lighthouse because it’s easier to set up. However, using your own token gives you more control.
+
+## Lighthouse (Recommended)
+
+TODO: Add Lighthouse setup instructions.
+
+## Bringing Your Own Token
+
+### Step 1: Sign In
+
+Visit https://gateway.noxcrew.com and sign in with your Microsoft account.
+
+![Noxcrew Gateway Home](/docs/gateway_homepage.png)
+
+### Step 2: Create an API Token
+
+After logging in, you’ll be redirected to your profile page. Scroll down to the **Developers** section.
+
+Click the **CREATE KEY** button. This will generate a new API token, which you can copy directly to your clipboard.
+
+![Noxcrew Gateway Developers Section – Copied token](/docs/gateway_dev_copy.png)
+
+Once you’ve copied the token, continue to the next step.
+
+### Step 3: Add the Token In-Game
+
+With the token copied, you’ll need to add it in-game.
+
+1. Join **MCC Island**
+2. Run the following command, replacing the placeholder with your token:
+
+```text
+/trident api setToken REPLACE_THIS_WITH_TOKEN
+```
+
+Your command should look similar to this:
+
+![Pasted token command](/docs/token_pasted.png)
+
+Double-check that everything is correct, then send the command. You should see a confirmation message.
