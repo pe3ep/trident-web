@@ -1,23 +1,25 @@
 ---
-title: Setting Up an API Token
+title: API usage in Trident
 icon: EthernetPort
 ---
 
-Bringing your own API token into Trident unlocks additional features.
+Sometimes, Trident will require the use of [MCC Island's API](https://api.mccisland.net/) to get some information about the user.
 
-Currently, only one feature requires API access: the **Exchange Module**.
+Currently, only one feature requires API access: the [**Exchange Module**](/docs/modules/exchange-module).
 
 There are two ways to access the API:
 
-- Using **Trident** (default, recommended)
+- Using **Trident Web** (default, recommended)
 - Bringing your own API token
 
-We generally recommend **Trident** because it’s easier to set up. However, using your own token gives you more control and greater speeds.
+We generally recommend **Trident Web** because it requires no setup. However, using your own token gives you more control and faster responses.
 
-## Trident (Recommended)
+## Trident Web (Recommended)
 
 This option is enabled by default and requires no setup. Note that this is slower than using your own token and
 might stop being maintained in the future.
+
+**Responses from MCC Island's API are not collected by Trident Web.**
 
 ## Bringing Your Own Token
 
@@ -52,4 +54,11 @@ Your command should look similar to this:
 
 ![Pasted token command](/docs/token_pasted.png)
 
-Double-check that everything is correct, then send the command. You should see a confirmation message.
+Double-check that everything is correct, then send the command. You should see a confirmation message. Your API provider in the config will be automatically changed to "Token"
+
+<Callout title="Caution" type="warning">
+Your token is stored as plaintext in the config file of Trident. **DO NOT SHARE your config file with anyone if you're using this option.**
+
+If you wish to share your config, make sure you run `/trident api resetToken` to remove your token.
+
+</Callout>
