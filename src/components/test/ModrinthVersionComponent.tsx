@@ -1,5 +1,4 @@
 'use server'
-import React from 'react'
 import { ModrinthVersion } from './types'
 
 export default async function ModrinthVersionComponent() {
@@ -7,7 +6,13 @@ export default async function ModrinthVersionComponent() {
     headers: {
       'Content-Type': 'application/json',
     },
-  }).then((res) => res.json())
+  })
+    .then((res) => res.json())
+    .catch((e) => console.error(e))
+
+  if (data == undefined) {
+    return <div>unknown</div>
+  }
 
   let versionData: ModrinthVersion[] = data
 

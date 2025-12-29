@@ -10,7 +10,7 @@ export function baseOptions(): BaseLayoutProps {
           <TridentLogo className="fill-foreground size-6" />
         </>
       ),
-      enabled: false,
+      enabled: true,
     },
   }
 }

@@ -1,6 +1,8 @@
 import Navbar from '@/components/elements/navbar'
 import GithubLogo from '@/components/icons/github'
 import ModrinthLogo from '@/components/icons/modrinth'
+import TridentLogo from '@/components/icons/trident'
+import ModrinthVersionComponent from '@/components/test/ModrinthVersionComponent'
 import { House } from 'lucide-react'
 
 export default function Home() {
@@ -10,25 +12,16 @@ export default function Home() {
 
       <div className="bg-background relative z-10 h-[100vh] w-full">
         <main className="mx-auto max-w-6xl p-4">
-          {/* <h1 className="font-public-sans scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
-            Trident
-          </h1>
-          <div className="flex max-w-min flex-col gap-4">
-            <Button variant="default">Hello!</Button>
-            <Button variant="secondary">Hello!</Button>
-            <Button variant="modrinth">Hello!</Button>
-            <Button variant="destructive">Hello!</Button>
-            <Button variant="ghost">Hello!</Button>
-            <Button variant="outline">Hello!</Button>
+          <div className="grid h-64 w-full place-content-center">
+            <div className="flex flex-col items-center gap-4">
+              <TridentLogo className="size-16 fill-white" />
+              <h1 className="font-public-sans scroll-m-20 text-center text-6xl font-extrabold tracking-tight text-balance">
+                Elevate your Island experience.
+              </h1>
+              <p className="text-muted-foreground">Trident is a utility mod made specifically for MCC Island.</p>
+            </div>
           </div>
-          <div className="mt-4 flex max-w-min gap-2">
-            <Badge variant="default">hello</Badge>
-            <Badge variant="destructive">hello</Badge>
-            <Badge variant="outline">hello</Badge>
-            <Badge variant="secondary">hello</Badge>
-          </div>
-          <p>This is regular text.</p>
-          <ModrinthVersionComponent /> */}
+          <ModrinthVersionComponent />
         </main>
       </div>
       <footer className="bg-primary sticky bottom-0 z-0 h-48">
