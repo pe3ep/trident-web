@@ -1,27 +1,87 @@
+'use client'
 import Navbar from '@/components/elements/navbar'
 import GithubLogo from '@/components/icons/github'
 import ModrinthLogo from '@/components/icons/modrinth'
 import TridentLogo from '@/components/icons/trident'
+import ModulesSection from '@/components/sections/modules-section'
 import ModrinthVersionComponent from '@/components/test/ModrinthVersionComponent'
+import { Button } from '@/components/ui/button'
+import LetterTransition from '@/lib/letter-transition'
+import { slideTransition, staggerWrapper, swiftTransition } from '@/lib/motion-util'
 import { House } from 'lucide-react'
+import { motion } from 'motion/react'
+import Link from 'next/link'
 
 export default function Home() {
   return (
     <>
       <Navbar />
-
-      <div className="bg-background relative z-10 h-[100vh] w-full">
-        <main className="mx-auto max-w-6xl p-4">
-          <div className="grid h-64 w-full place-content-center">
+      <div className="bg-background relative z-10 h-full w-full">
+        <main className="">
+          <div className="from-primary/15 to-primary/0 relative grid w-full place-content-center bg-gradient-to-t to-90% p-4 py-20">
             <div className="flex flex-col items-center gap-4">
-              <TridentLogo className="size-16 fill-white" />
-              <h1 className="font-public-sans scroll-m-20 text-center text-6xl font-extrabold tracking-tight text-balance">
-                Elevate your Island experience.
-              </h1>
-              <p className="text-muted-foreground">Trident is a utility mod made specifically for MCC Island.</p>
+              <motion.div
+                variants={swiftTransition({
+                  direction: 'down',
+                  offset: 200,
+                  duration: 0.5,
+                  bounce: 0.35,
+                  fromBlur: 16,
+                })}
+                initial="hidden"
+                animate="visible">
+                <TridentLogo className="size-16 fill-white" />
+              </motion.div>
+              <motion.h1
+                variants={swiftTransition({
+                  direction: 'up',
+                  offset: 100,
+                  duration: 0.5,
+                  bounce: 0.1,
+                  fromScale: 0.9,
+                })}
+                initial="hidden"
+                animate="visible"
+                className="font-public-sans scroll-m-20 text-center text-5xl font-extrabold tracking-tight text-balance">
+                <LetterTransition
+                  id={`title`}
+                  string={'Trident'}
+                  transitionOptions={{
+                    offset: 15,
+                    fromBlur: 4,
+                    duration: 0.4,
+                    bounce: 0.5,
+                    fromScale: 0.7,
+                  }}
+                  staggerBy={0.04}
+                />
+              </motion.h1>
+
+              <motion.div
+                className="flex flex-col items-center gap-2 sm:flex-row"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  type: 'spring',
+                  duration: 0.9,
+                  bounce: 0,
+                  delay: 0.3,
+                }}>
+                <p className="text-muted-foreground">Companion mod for everyone</p>
+                <span className="hidden sm:inline-block">•</span>
+                <p className="text-muted-foreground">
+                  Latest version: <ModrinthVersionComponent />
+                </p>
+              </motion.div>
+              <DownloadButtons />
             </div>
           </div>
-          <ModrinthVersionComponent />
+          <div className="border-t-2 border-dashed border-white/15" />
+          <ModulesSection />
+          <div className="border-t-2 border-dashed border-white/15" />
+          <ModulesSection />
+          <div className="border-t-2 border-dashed border-white/15" />
+          <ModulesSection />
         </main>
       </div>
       <footer className="bg-primary sticky bottom-0 z-0 h-48">
@@ -50,5 +110,38 @@ export default function Home() {
         </div>
       </footer>
     </>
+  )
+}
+
+const DownloadButtons = () => {
+  const staggerVariants = slideTransition({ offest: 5, duration: 0.7, fromBlur: 2 })
+
+  return (
+    <motion.div
+      variants={staggerWrapper(0.075, { startDelay: 0.5 })}
+      initial="hidden"
+      animate="visible"
+      className="flex items-center gap-1.5">
+      <motion.div key={1} variants={staggerVariants}>
+        <Button variant="secondary" asChild>
+          <a href="https://github.com/pe3ep/Trident">Source</a>
+        </Button>
+      </motion.div>
+      <motion.div key={2} variants={staggerVariants}>
+        <Button variant="secondary" asChild>
+          <Link href="/docs" prefetch={false}>
+            Docs
+          </Link>
+        </Button>
+      </motion.div>
+      <motion.div key={3} variants={staggerVariants}>
+        <Button asChild>
+          <a href="https://modrinth.com/project/trident-mcci">
+            <ModrinthLogo className="h-5 w-5" />
+            Download
+          </a>
+        </Button>
+      </motion.div>
+    </motion.div>
   )
 }

@@ -6,7 +6,7 @@ import { Button } from '../ui/button'
 
 export default function Navbar() {
   return (
-    <header className="bg-background border-accent sticky top-0 z-99 mx-auto flex w-full items-center justify-center overflow-hidden border-b p-3">
+    <header className="bg-background/90 border-accent sticky top-0 z-99 mx-auto flex w-full items-center justify-center overflow-hidden border-b p-3 backdrop-blur-2xl">
       <div className="flex w-full max-w-5xl items-center justify-between px-1">
         <Link href="/" className="hover:fill-primary fill-foreground transition-all active:scale-90">
           <TridentLogo className="size-6 md:size-7" />

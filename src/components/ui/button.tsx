@@ -10,22 +10,22 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-primary border border-primary-foreground/20 text-primary-foreground shadow-md hover:bg-primary-hover  focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40',
+          'bg-primary border border-primary-foreground/30 text-primary-foreground shadow-md hover:bg-primary-hover focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40 focus-visible:border-primary-foreground/50',
         modrinth:
-          'bg-[#1CD96A] border border-black/20 text-black focus-visible:ring-[#1CD96A]/20 dark:focus-visible:ring-[#1CD96A]/40 shadow-md hover:bg-[#1CD96A]/90',
+          'bg-[#1CD96A] border border-black/30 text-black focus-visible:ring-[#1CD96A]/20 dark:focus-visible:ring-[#1CD96A]/40 shadow-md hover:bg-[#1CD96A]/90 focus-visible:border-black/50',
         destructive:
-          'bg-destructive border border-white/20 text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/70 dark:hover:bg-destructive/60',
+          'bg-destructive border border-white/30 text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/70 dark:hover:bg-destructive/60',
         outline:
           'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:hover:bg-input/50',
         secondary:
-          'bg-secondary border border-secondary-foreground/20 text-secondary-foreground shadow-xs hover:bg-secondary-hover',
+          'bg-secondary border border-secondary-foreground/20 text-secondary-foreground shadow-xs hover:bg-secondary-hover focus-visible:border-secondary-foreground/60',
         ghost: 'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/80',
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
         default: 'h-8 px-4 py-2 has-[>svg]:px-3',
         sm: 'h-7 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
-        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
+        lg: 'h-10 rounded-2xl px-6 has-[>svg]:px-4',
         icon: 'size-9',
       },
     },
