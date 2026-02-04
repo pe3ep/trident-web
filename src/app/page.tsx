@@ -8,7 +8,7 @@ import ModrinthVersionComponent from '@/components/test/ModrinthVersionComponent
 import { Button } from '@/components/ui/button'
 import LetterTransition from '@/lib/letter-transition'
 import { slideTransition, staggerWrapper, swiftTransition } from '@/lib/motion-util'
-import { House } from 'lucide-react'
+import { House, WorkflowIcon } from 'lucide-react'
 import { motion } from 'motion/react'
 import Link from 'next/link'
 
@@ -17,8 +17,8 @@ export default function Home() {
     <>
       <Navbar />
       <div className="bg-background relative z-10 h-full w-full">
-        <main className="">
-          <div className="from-primary/15 to-primary/0 relative grid w-full place-content-center bg-gradient-to-t to-90% p-4 py-20">
+        <main className="from-primary/50 to-primary/0 h-screen bg-gradient-to-t to-90%">
+          <div className="relative grid w-full place-content-center p-4 py-20">
             <div className="flex flex-col items-center gap-4">
               <motion.div
                 variants={swiftTransition({
@@ -76,12 +76,23 @@ export default function Home() {
               <DownloadButtons />
             </div>
           </div>
-          <div className="border-t-2 border-dashed border-white/15" />
-          <ModulesSection />
-          <div className="border-t-2 border-dashed border-white/15" />
-          <ModulesSection />
-          <div className="border-t-2 border-dashed border-white/15" />
-          <ModulesSection />
+          <div className="mx-auto max-w-6xl">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: 'spring',
+                duration: 0.9,
+                bounce: 0,
+                delay: 0.5,
+              }}
+              className="bg-accent border-accent-foreground/15 grid aspect-video w-full place-content-center rounded-2xl border">
+              <div className="flex flex-col items-center gap-2">
+                <WorkflowIcon className="size-10" />
+                <h2 className="text-2xl font-semibold">This page is being worked on</h2>
+              </div>
+            </motion.div>
+          </div>
         </main>
       </div>
       <footer className="bg-primary sticky bottom-0 z-0 h-48">
