@@ -1,0 +1,11 @@
+[variables]
+NODE_ENV = "production"
+
+[phases.setup]
+nixPkgs = ["bun"]
+
+[phases.install]
+cmds = ["bun install --frozen-lockfile"]
+
+[start]
+cmd = "bun run src/index.ts"
