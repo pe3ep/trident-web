@@ -8,4 +8,4 @@ nixPkgs = ["bun"]
 cmds = ["bun install --frozen-lockfile"]
 
 [start]
-cmd = "bun run src/index.ts"
+cmd = "bun run start"
